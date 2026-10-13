@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Regression Predictors</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 40px;">
+
+    <h2>Linear Regression Predictor</h2>
+
+    <!-- Tesla Predictor -->
+    <div style="background: #f4f4f4; padding: 20px; margin-bottom: 20px; border-radius: 5px;">
+        <h3>1. Tesla Dataset (Predict Price)</h3>
+        <form action="/predict_tesla" method="POST">
+            <label>Manufacturing Year (e.g., 2021):</label><br>
+            <input type="text" name="year" required><br><br>
+            
+            <label>Kilometers Driven:</label><br>
+            <input type="text" name="km" required><br><br>
+            
+            <input type="submit" value="Predict Price" style="padding: 5px 10px; cursor: pointer;">
+        </form>
+        
+        {% if result_tesla %}
+            <h4 style="color: green;">Result: {{ result_tesla }}</h4>
+        {% endif %}
+    </div>
+
+    <!-- Advertising Predictor -->
+    <div style="background: #e9ecef; padding: 20px; border-radius: 5px;">
+        <h3>2. Advertising Dataset (Predict Sales)</h3>
+        <form action="/predict_sales" method="POST">
+            <label>TV Budget ($):</label><br>
+            <input type="text" name="tv" required><br><br>
+            
+            <label>Radio Budget ($):</label><br>
+            <input type="text" name="radio" required><br><br>
+            
+            <label>Newspaper Budget ($):</label><br>
+            <input type="text" name="newspaper" required><br><br>
+            
+            <input type="submit" value="Predict Sales" style="padding: 5px 10px; cursor: pointer;">
+        </form>
+
+        {% if result_sales %}
+            <h4 style="color: blue;">Result: {{ result_sales }}</h4>
+        {% endif %}
+    </div>
+
+</body>
+</html>
